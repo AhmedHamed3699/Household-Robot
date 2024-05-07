@@ -1,0 +1,149 @@
+<circuit version="1.0.0-SR2" rev="1449" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Ground" CircId="Ground-1" mainComp="false" Show_id="false" Show_Val="false" Pos="-472,304" rotation="0" hflip="1" vflip="1" label="Ground-1" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Subcircuit" CircId="L298P-2" mainComp="false" Show_id="true" Show_Val="false" Pos="-248,-60" rotation="360" hflip="-1" vflip="1" label="L298P-2" idLabPos="32,-17" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="true" />
+
+<item itemtype="Subcircuit" CircId="Uno-3" mainComp="false" Show_id="true" Show_Val="false" Pos="-140,-124" rotation="0" hflip="1" vflip="1" label="Uno-3" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="false">
+<mainCompProps itemtype="MCU" CircId="1_mega328-109" mainComp="true" Show_id="true" Show_Val="false" Pos="20,20" rotation="0" hflip="1" vflip="1" label="1_mega328-109" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="16 MHz" Program="../src/build/arduino.avr.uno/src.ino.hex" Auto_Load="false" Rst_enabled="true" Ext_Osc="true" Wdt_enabled="false" />
+</item>
+
+<item itemtype="DcMotor" CircId="DcMotor-4" mainComp="false" Show_id="true" Show_Val="false" Pos="-384,-52" rotation="0" hflip="-1" vflip="1" label="VaccumDcMotor" idLabPos="38,-48" labelrot="0" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="12 V" Resistance="100 Ω" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-5" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-472,344" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-5" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Voltage="12 V" />
+
+<item itemtype="DcMotor" CircId="DcMotor-11" mainComp="false" Show_id="true" Show_Val="false" Pos="-524,72" rotation="0" hflip="-1" vflip="1" label="PumpDcMotor" idLabPos="27,49" labelrot="0" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="12 V" Resistance="100 Ω" />
+
+<item itemtype="DcMotor" CircId="DcMotor-12" mainComp="false" Show_id="true" Show_Val="false" Pos="-384,28" rotation="0" hflip="-1" vflip="1" label="FanDcMotor" idLabPos="-31,-30" labelrot="0" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="12 V" Resistance="100 Ω" />
+
+<item itemtype="DcMotor" CircId="DcMotor-13" mainComp="false" Show_id="true" Show_Val="false" Pos="-524,-16" rotation="0" hflip="-1" vflip="1" label="ArmDcMotor" idLabPos="28,-51" labelrot="0" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="12 V" Resistance="100 Ω" />
+
+<item itemtype="Servo" CircId="Servo-14" mainComp="false" Show_id="true" Show_Val="false" Pos="168,4" rotation="0" hflip="1" vflip="1" label="GripperServoMotor" idLabPos="-16,-40" labelrot="0" valLabPos="-16,20" valLabRot="0" Speed="0.2 _sec/60º" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" />
+
+<item itemtype="Servo" CircId="Servo-15" mainComp="false" Show_id="true" Show_Val="false" Pos="172,76" rotation="0" hflip="1" vflip="1" label="ArmServoMotor" idLabPos="-16,-40" labelrot="0" valLabPos="-16,20" valLabRot="0" Speed="0.2 _sec/60º" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" />
+
+<item itemtype="Subcircuit" CircId="L298P-16" mainComp="false" Show_id="true" Show_Val="false" Pos="-248,20" rotation="360" hflip="-1" vflip="1" label="L298P-16" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="true" />
+
+<item itemtype="Subcircuit" CircId="L298P-18" mainComp="false" Show_id="true" Show_Val="false" Pos="-248,100" rotation="360" hflip="-1" vflip="1" label="L298P-18" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="true" />
+
+<item itemtype="DcMotor" CircId="DcMotor-19" mainComp="false" Show_id="true" Show_Val="false" Pos="-412,148" rotation="-270" hflip="-1" vflip="1" label="LWheelDcMotor" idLabPos="-59,-24" labelrot="90" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="12 V" Resistance="100 Ω" />
+
+<item itemtype="DcMotor" CircId="DcMotor-20" mainComp="false" Show_id="true" Show_Val="false" Pos="-332,164" rotation="90" hflip="-1" vflip="1" label="RWheelDcMotor" idLabPos="49,-32" labelrot="90" valLabPos="-14,36" valLabRot="0" RPM_Nominal="60 _RPM" Volt_Nominal="12 V" Resistance="100 Ω" />
+
+<item itemtype="Node" CircId="Node-23" mainComp="false" Pos="-456,148" />
+
+<item itemtype="Node" CircId="Node-26" mainComp="false" Pos="-456,68" />
+
+<item itemtype="Node" CircId="Node-32" mainComp="false" Pos="-472,28" />
+
+<item itemtype="Node" CircId="Node-35" mainComp="false" Pos="-472,116" />
+
+<item itemtype="Node" CircId="Node-96" mainComp="false" Pos="-164,68" />
+
+<item itemtype="Node" CircId="Node-99" mainComp="false" Pos="-164,76" />
+
+<item itemtype="Node" CircId="Node-162" mainComp="false" Pos="-472,280" />
+
+<item itemtype="Node" CircId="Node-166" mainComp="false" Pos="108,76" />
+
+<item itemtype="Node" CircId="Node-174" mainComp="false" Pos="32,-12" />
+
+<item itemtype="Node" CircId="Node-177" mainComp="false" Pos="32,60" />
+
+<item itemtype="Node" CircId="Node-231" mainComp="false" Pos="-164,0" />
+
+<item itemtype="Connector" uid="connector-232" startpinid="Fixed Voltage-5-outnod" endpinid="Node-23-0" pointList="-456,344,-456,148" />
+
+<item itemtype="Connector" uid="connector-233" startpinid="Ground-1-Gnd" endpinid="Node-162-0" pointList="-472,288,-472,280" />
+
+<item itemtype="Connector" uid="connector-234" startpinid="L298P-2-IN1" endpinid="Uno-3-7" pointList="-240,-52,-132,-52" />
+
+<item itemtype="Connector" uid="connector-235" startpinid="L298P-2-OUT1" endpinid="DcMotor-4-lPin" pointList="-288,-52,-344,-52" />
+
+<item itemtype="Connector" uid="connector-236" startpinid="L298P-18-Vs" endpinid="Node-23-1" pointList="-288,148,-456,148" />
+
+<item itemtype="Connector" uid="connector-237" startpinid="Node-23-2" endpinid="Node-26-0" pointList="-456,148,-456,68" />
+
+<item itemtype="Connector" uid="connector-238" startpinid="L298P-16-Vs" endpinid="Node-26-1" pointList="-288,68,-456,68" />
+
+<item itemtype="Connector" uid="connector-239" startpinid="Node-26-2" endpinid="L298P-2-Vs" pointList="-456,68,-456,-12,-288,-12" />
+
+<item itemtype="Connector" uid="connector-240" startpinid="DcMotor-12-lPin" endpinid="L298P-16-OUT1" pointList="-344,28,-288,28" />
+
+<item itemtype="Connector" uid="connector-241" startpinid="DcMotor-12-rPin" endpinid="Node-32-1" pointList="-424,28,-472,28" />
+
+<item itemtype="Connector" uid="connector-242" startpinid="DcMotor-11-rPin" endpinid="Node-35-1" pointList="-564,72,-564,116,-472,116" />
+
+<item itemtype="Connector" uid="connector-243" startpinid="Node-35-2" endpinid="Node-32-0" pointList="-472,116,-472,28" />
+
+<item itemtype="Connector" uid="connector-244" startpinid="DcMotor-19-lPin" endpinid="L298P-18-OUT1" pointList="-412,108,-288,108" />
+
+<item itemtype="Connector" uid="connector-245" startpinid="DcMotor-19-rPin" endpinid="L298P-18-OUT2" pointList="-412,188,-372,188,-372,116,-288,116" />
+
+<item itemtype="Connector" uid="connector-246" startpinid="DcMotor-20-lPin" endpinid="L298P-18-OUT3" pointList="-332,124,-288,124" />
+
+<item itemtype="Connector" uid="connector-247" startpinid="DcMotor-20-rPin" endpinid="L298P-18-OUT4" pointList="-332,204,-292,204,-292,132,-288,132" />
+
+<item itemtype="Connector" uid="connector-248" startpinid="L298P-18-EnA" endpinid="Uno-3-5" pointList="-240,148,-176,148,-176,-68,-132,-68" />
+
+<item itemtype="Connector" uid="connector-249" startpinid="L298P-18-EnB" endpinid="Uno-3-6" pointList="-240,156,-172,156,-172,-60,-132,-60" />
+
+<item itemtype="Connector" uid="connector-250" startpinid="L298P-2-EnA" endpinid="Node-231-0" pointList="-240,-12,-164,-12,-164,0" />
+
+<item itemtype="Connector" uid="connector-251" startpinid="L298P-16-EnA" endpinid="Node-96-1" pointList="-240,68,-164,68" />
+
+<item itemtype="Connector" uid="connector-252" startpinid="Node-96-2" endpinid="Node-99-0" pointList="-164,68,-164,76" />
+
+<item itemtype="Connector" uid="connector-253" startpinid="L298P-16-EnB" endpinid="Node-99-1" pointList="-240,76,-164,76" />
+
+<item itemtype="Connector" uid="connector-254" startpinid="Node-162-2" endpinid="Node-35-0" pointList="-472,280,-472,116" />
+
+<item itemtype="Connector" uid="connector-255" startpinid="Node-162-1" endpinid="Node-166-0" pointList="-472,280,108,280,108,76" />
+
+<item itemtype="Connector" uid="connector-256" startpinid="Servo-15-in1" endpinid="Node-166-1" pointList="124,76,108,76" />
+
+<item itemtype="Connector" uid="connector-257" startpinid="Node-166-2" endpinid="Servo-14-in1" pointList="108,76,108,4,120,4" />
+
+<item itemtype="Connector" uid="connector-258" startpinid="Uno-3-9" endpinid="Servo-14-in2" pointList="-132,-28,-144,-28,-144,-148,88,-148,88,20,120,20" />
+
+<item itemtype="Connector" uid="connector-259" startpinid="Servo-15-in2" endpinid="Uno-3-10" pointList="124,92,84,92,84,-152,-148,-152,-148,-20,-132,-20" />
+
+<item itemtype="Connector" uid="connector-260" startpinid="Node-99-2" endpinid="Node-177-0" pointList="-164,76,-164,108,32,108,32,60" />
+
+<item itemtype="Connector" uid="connector-261" startpinid="Servo-14-in0" endpinid="Node-174-1" pointList="120,-12,32,-12" />
+
+<item itemtype="Connector" uid="connector-262" startpinid="Node-174-2" endpinid="Uno-3-5V0" pointList="32,-12,32,-28,12,-28" />
+
+<item itemtype="Connector" uid="connector-263" startpinid="Servo-15-in0" endpinid="Node-177-1" pointList="124,60,32,60" />
+
+<item itemtype="Connector" uid="connector-264" startpinid="Node-177-2" endpinid="Node-174-0" pointList="32,60,32,-12" />
+
+<item itemtype="Connector" uid="connector-265" startpinid="L298P-2-OUT3" endpinid="DcMotor-13-lPin" pointList="-288,-36,-348,-36,-348,-16,-484,-16" />
+
+<item itemtype="Connector" uid="connector-266" startpinid="Node-32-2" endpinid="DcMotor-4-rPin" pointList="-472,28,-472,-52,-424,-52" />
+
+<item itemtype="Connector" uid="connector-267" startpinid="DcMotor-13-rPin" endpinid="L298P-2-OUT4" pointList="-564,-16,-564,28,-484,28,-484,-8,-340,-8,-340,-28,-288,-28" />
+
+<item itemtype="Connector" uid="connector-268" startpinid="DcMotor-11-lPin" endpinid="L298P-16-OUT3" pointList="-484,72,-332,72,-332,44,-288,44" />
+
+<item itemtype="Connector" uid="connector-269" startpinid="Uno-3-12" endpinid="L298P-2-IN3" pointList="-132,-4,-184,-4,-184,-36,-240,-36" />
+
+<item itemtype="Connector" uid="connector-270" startpinid="Uno-3-13" endpinid="L298P-2-IN4" pointList="-132,4,-188,4,-188,-28,-240,-28" />
+
+<item itemtype="Connector" uid="connector-271" startpinid="L298P-16-IN1" endpinid="Uno-3-2" pointList="-240,28,-196,28,-196,-92,-132,-92" />
+
+<item itemtype="Connector" uid="connector-272" startpinid="L298P-16-IN3" endpinid="Uno-3-4" pointList="-240,44,-192,44,-192,-76,-132,-76" />
+
+<item itemtype="Connector" uid="connector-273" startpinid="L298P-18-IN4" endpinid="Uno-3-11" pointList="-240,132,-200,132,-200,-16,-132,-16,-132,-12" />
+
+<item itemtype="Connector" uid="connector-274" startpinid="L298P-18-IN3" endpinid="Uno-3-8" pointList="-240,124,-204,124,-204,-40,-132,-40,-132,-36" />
+
+<item itemtype="Connector" uid="connector-275" startpinid="L298P-18-IN2" endpinid="Uno-3-1" pointList="-240,116,-208,116,-208,-100,-132,-100" />
+
+<item itemtype="Connector" uid="connector-276" startpinid="L298P-18-IN1" endpinid="Uno-3-0" pointList="-240,108,-212,108,-212,-108,-132,-108" />
+
+<item itemtype="Connector" uid="connector-277" startpinid="L298P-2-EnB" endpinid="Node-231-1" pointList="-240,-4,-240,0,-164,0" />
+
+<item itemtype="Connector" uid="connector-278" startpinid="Node-231-2" endpinid="Node-96-0" pointList="-164,0,-164,68" />
+
+</circuit>
