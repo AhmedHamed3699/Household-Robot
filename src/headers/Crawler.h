@@ -10,6 +10,11 @@ class Wheel{
     byte speed;
 
   public:
+
+    Wheel(){
+
+    }
+
     Wheel(byte speedPin,byte pinOne, byte pinTwo){
       this->speedPin = speedPin;
       this->pinOne = pinOne;
@@ -59,8 +64,8 @@ class Wheel{
 class Crawler{
 
   private:
-    Wheel& leftWheel;
-    Wheel& rightWheel;
+    Wheel leftWheel;
+    Wheel rightWheel;
 
   public:
 
@@ -93,6 +98,11 @@ class Crawler{
     void right(){
       rightWheel.forward();
       leftWheel.backward();
+    }
+
+    void stop(){
+      rightWheel.stop();
+      leftWheel.stop();
     }
 
 };
