@@ -32,7 +32,7 @@ enum PINS{
 
   //ARM
 
-  gripPin = 7,
+  gripPin = 5,
   rotationPin = 3,
   upPin = 2,
   downPin = 4,

@@ -10,7 +10,8 @@ class Arm{
     byte rotationPin;
     byte upPin;
     byte downPin;
-    Servo myservo;
+    Servo rotationServo;
+    Servo gripServo;
 
   public:
 
@@ -23,10 +24,10 @@ class Arm{
     }
 
     Init(){
-      pinMode(gripPen, OUTPUT);
       pinMode(upPin, OUTPUT);
       pinMode(downPin, OUTPUT);
-      myservo.attach(rotationPin);
+      rotationServo.attach(rotationPin);
+      gripServo.attach(gripPin);
     }
 
     void up(){
@@ -45,10 +46,30 @@ class Arm{
     }
 
     void rotateDown(){
-      myservo.write(90);
+      rotationServo.write(90);
     }
 
     void rotateUp(){
-      myservo.write(180);
+      rotationServo.write(180);
+    }
+
+    void grip(){
+      gripServo.write(0);
+    }
+
+    void release(){
+      gripServo.write(180);
+    }
+
+    void getSock(){
+      down();
+      delay(1000);
+      stopLifting();
+      delay(1000);
+      grip();
+      delay(2000);
+      up();
+      delay(2000);
+      stopLifting();
     }
 };
