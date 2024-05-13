@@ -12,10 +12,11 @@ key_map = {
     pynput.keyboard.Key.right: 'R',
     pynput.keyboard.Key.ctrl_l: 'G',
     pynput.keyboard.Key.ctrl_r: 'H',
-    pynput.keyboard.Key.shift_l: 'Z',
-    pynput.keyboard.Key.shift_r: 'X',
-    pynput.keyboard.Key.page_up: 'E',
-    pynput.keyboard.Key.page_down: 'T',
+    pynput.keyboard.Key.shift_l: 'E',
+    pynput.keyboard.Key.shift_r: 'T',
+    pynput.keyboard.Key.page_up: 'Z',
+    pynput.keyboard.Key.page_down: 'X',
+    pynput.keyboard.Key.caps_lock: 'A',
 }
 
 # Function to handle key presses
