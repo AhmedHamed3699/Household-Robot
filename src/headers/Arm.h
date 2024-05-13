@@ -45,11 +45,11 @@ class Arm{
       digitalWrite(downPin,LOW);
     }
 
-    void rotateDown(){
+    void rotateBackward(){
       rotationServo.write(90);
     }
 
-    void rotateUp(){
+    void rotateForward(){
       rotationServo.write(180);
     }
 
@@ -61,15 +61,15 @@ class Arm{
       gripServo.write(180);
     }
 
-    void getSock(){
+    void handleObject(void (*action)()){
       down();
-      delay(1000);
+      delay(500);
       stopLifting();
-      delay(1000);
-      grip();
-      delay(2000);
+      delay(800);
+      action();
+      delay(800);
       up();
-      delay(2000);
+      delay(900);
       stopLifting();
     }
 };

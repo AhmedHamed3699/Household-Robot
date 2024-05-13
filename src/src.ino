@@ -2,10 +2,9 @@
 #include "headers/Constants.h"
 #include "headers/Crawler.h"
 #include "headers/Arm.h"
-DishWasher disher(fanPin,pumPin);
-Crawler crawler(leftForward,leftBackward,speedLeft,rightForward,rightBackward,speedRight);
-Arm arm(gripPin,rotationPin,upPin,downPin);
-
+DishWasher disher(fanPin, pumPin);
+Crawler crawler(leftForward, leftBackward, speedLeft, rightForward, rightBackward, speedRight);
+Arm arm(gripPin, rotationPin, upPin, downPin);
 
 int incomingByte = 0;
 
@@ -13,8 +12,10 @@ bool forwardsPressed = false;
 bool backwardsPressed = false;
 bool rightPressed = false;
 bool leftPressed = false;
+bool release = false; 
 
-void setup() {
+void setup()
+{
   crawler.setup();
   disher.setup();
   Serial.begin(9600);
@@ -22,47 +23,72 @@ void setup() {
   pinMode(13, OUTPUT);
 }
 
-void loop() {
-    
- // if (Serial.available() > 0)
-   {
+void loop()
+{
+
+  //  if (Serial.available() > 0)
+  {
     char c = (char)Serial.read();
     Serial.println(c);
-    if(c == 'U'){
+    if (c == 'U')
+    {
       crawler.forward();
-    }else if(c == 'D'){
+    }
+    else if (c == 'D')
+    {
       crawler.backward();
-    }else if(c == 'R'){
+    }
+    else if (c == 'R')
+    {
       crawler.right();
-    }else if(c == 'L'){
+    }
+    else if (c == 'L')
+    {
       crawler.left();
-    }else{
+    }
+    else
+    {
       crawler.stop();
-     // digitalWrite(13, LOW);
+      // digitalWrite(13, LOW);
     }
 
-     if(c == 'Z'){
-       arm.up();
-     }else if(c == 'X'){
-       arm.down();
-     }else{ 
-      arm.stopLifting();}
+    if (c == 'Z')
+    {
+      arm.up();
+    }
+    else if (c == 'X')
+    {
+      arm.down();
+    }
+    else
+    {
+      arm.stopLifting();
+    }
 
-     if(c == 'E'){
-       arm.rotateDown();
-     }else if(c == 'T'){
-       arm.rotateUp();
-      }
-    if(c == 'G'){
+    if (c == 'E')
+    {
+      arm.rotateForward();
+    }
+    else if (c == 'T')
+    {
+      arm.rotateBackward();
+    }
+    if (c == 'G')
+    {
       arm.grip();
       digitalWrite(13, HIGH);
-    }else if(c == 'H'){
+    }
+    else if (c == 'H')
+    {
       arm.release();
       digitalWrite(13, LOW);
     }
- 
 
-
+    if (c == 'A')
+    {
+      arm.handleObject( (release) ? arm.release : arm.grip);
+      release = !release;
+    }
   }
   delay(100);
 }
