@@ -36,6 +36,7 @@ enum PINS{
 
   gripPin = 5,
   rotationPin = 3,
+  
   upPin = 4,
   downPin = 2,
 

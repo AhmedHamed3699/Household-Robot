@@ -2,7 +2,7 @@ import serial
 import pynput
 
 # Serial port configuration (replace with your Arduino's port)
-arduino = serial.Serial('COM3', 9600)  # Adjust port and baud rate as needed
+arduino = serial.Serial('/dev/ttyACM0', 9600)  # Adjust port and baud rate as needed
 
 # Key mappings (modify these to your desired characters)
 key_map = {
@@ -17,6 +17,8 @@ key_map = {
     pynput.keyboard.Key.page_up: 'Z',
     pynput.keyboard.Key.page_down: 'X',
     pynput.keyboard.Key.caps_lock: 'A',
+    pynput.keyboard.Key.alt_r: 'B',
+    pynput.keyboard.Key.alt_l: 'C'
 }
 
 # Function to handle key presses
