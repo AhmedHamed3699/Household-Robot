@@ -76,9 +76,8 @@ class Crawler{
     }
 
     void setup(){
-      // TODO: changing 255 to 180, causes a problem
-      leftWheel.Init(255);
-      rightWheel.Init(255);
+      leftWheel.Init(180);
+      rightWheel.Init(180);
     }
 
     void forward(){

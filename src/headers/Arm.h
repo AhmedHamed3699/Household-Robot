@@ -1,8 +1,9 @@
+#pragma once
 #include "Arduino.h"
 #include <Servo.h>
 
-
-class Arm{
+class Arm
+{
 
   private:
 
@@ -14,8 +15,7 @@ class Arm{
     Servo gripServo;
 
   public:
-
-    Arm(byte gripPin,byte rotPin,byte upPin,byte downPin) 
+  Arm(byte gripPin, byte rotPin, byte upPin, byte downPin)
     {
       this->gripPin = gripPin;
       this->rotationPin = rotPin;
@@ -23,7 +23,7 @@ class Arm{
       this->downPin = downPin;
     }
 
-    Init(){
+    setup(){
       pinMode(upPin, OUTPUT);
       pinMode(downPin, OUTPUT);
       rotationServo.attach(rotationPin);
@@ -46,30 +46,31 @@ class Arm{
     }
 
     void rotateBackward(){
-      rotationServo.write(90);
+      rotationServo.write(170);
     }
 
     void rotateForward(){
-      rotationServo.write(180);
+      rotationServo.write(20);
     }
 
     void grip(){
-      gripServo.write(0);
-    }
-
-    void release(){
       gripServo.write(180);
     }
 
-    void handleObject(void (*action)()){
+    void release(){
+      gripServo.write(0);
+    }
+
+  void handleObject(bool toGrip)
+  {
       down();
-      delay(500);
+    delay(800);
       stopLifting();
       delay(800);
-      action();
-      delay(800);
+      (toGrip) ? grip() : release(); 
+    delay(2000);
       up();
-      delay(900);
+    delay(800);
       stopLifting();
     }
 };
