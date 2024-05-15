@@ -2,17 +2,11 @@
 #include "headers/Constants.h"
 #include "headers/Crawler.h"
 #include "headers/Arm.h"
+
 DishWasher disher(fanPin, pumPin, drainPin);
 Crawler crawler(leftForward, leftBackward, speedLeft, rightForward, rightBackward, speedRight);
 Arm arm(gripPin, rotationPin, upPin, downPin);
 
-int incomingByte = 0;
-
-bool forwardsPressed = false;
-bool backwardsPressed = false;
-bool rightPressed = false;
-bool leftPressed = false;
-bool release = false; 
 
 ///============================
 // Functions
@@ -23,87 +17,115 @@ void booksDropRoutine();
 void setup()
 {
   crawler.setup();
-  disher.setup();
-  Serial.begin(9600);
-  arm.setup();
-  pinMode(13, OUTPUT);
+  // disher.setup();
+  // arm.setup();
+  pinMode(9,OUTPUT);
+  pinMode(10,OUTPUT);
+  pinMode(vacuumPin, OUTPUT);
+  analogWrite(9,210);
+  analogWrite(10,210);
 }
 
 void loop()
 {
-
-  //  if (Serial.available() > 0)
-  {
-    char c = (char)Serial.read();
-    
-    if (c == 'U')
-    {
-      crawler.forward();
-    }
-    else if (c == 'D')
-    {
-      crawler.backward();
-    }
-    else if (c == 'R')
-    {
-      crawler.right();
-    }
-    else if (c == 'L')
-    {
-      crawler.left();
-    }
-    else
-    {
-      crawler.stop();
-      // digitalWrite(13, LOW);
-    }
-
-    if (c == 'Z')
-    {
-      arm.up();
-    }
-    else if (c == 'X')
-    {
-      arm.down();
-    }
-    else
-    {
-      arm.stopLifting();
-    }
-
-    if (c == 'E')
-    {
-      arm.rotateForward();
-    }
-    else if (c == 'T')
-    {
-      arm.rotateBackward();
-    }
-    if (c == 'G')
-    {
-      arm.grip();
-      digitalWrite(13, HIGH);
-    }
-    else if (c == 'H')
-    {
-      arm.release();
-      digitalWrite(13, LOW);
-    }
-
-    if (c == 'A')
-    {
-      arm.handleObject(!release);
-      release = !release;
-    }
-
-    if (c == 'B') booksLiftingRoutine();
-    else if (c == 'C') booksDropRoutine();
-  }
-  delay(100);
+  delay(10000);
+  snakePattern();
 }
 
-bool checkBook(){
-  return true;
+enum State {
+  FORWARD,
+  STOP,
+  TURN_RIGHT,
+  FORWARD_SHORT,
+  TURN_LEFT,
+};
+
+State currentState = FORWARD;
+
+void snakePattern()
+{
+
+  crawler.setSpeed(230, 233);
+  bool firstTurn = true;
+  bool turnRight = true;
+  bool turnLeft = true;
+  // int delays[] = {}
+  for(int i = 0; i < 1000; i++)
+  {
+    // if(serialAvailable())
+    // {
+    //   char c = (char)Serial.read();p
+
+    //   if(c == 'S')
+    //   {
+    //     break;
+    //   }
+    // }
+    switch (currentState)
+    {
+      case FORWARD:
+        digitalWrite(vacuumPin, HIGH);
+        crawler.forward();
+        delay(4000);
+        crawler.backward();
+        delay(4000);
+        crawler.forward();
+        delay(4000);
+        crawler.stop();
+        delay(400);
+        if(firstTurn){
+          currentState = TURN_RIGHT;
+        }
+        else{
+          currentState = TURN_LEFT;
+        }
+        break;
+
+      case TURN_RIGHT:
+        digitalWrite(vacuumPin, LOW);
+        crawler.right();
+        delay(860+ ((i<3) ? i*85: 250));
+        crawler.stop();
+        delay(400);
+        if(turnRight){
+          currentState = FORWARD_SHORT;
+        }
+        else{
+          currentState = FORWARD;
+        }
+        turnRight = !turnRight;
+        break;
+
+      case FORWARD_SHORT:
+        crawler.forward();
+        delay(1000);
+        crawler.stop();
+        delay(400);
+        if(firstTurn){
+          currentState = TURN_RIGHT;
+        }
+        else{
+          currentState = TURN_LEFT;
+        }
+        firstTurn = !firstTurn;
+        break;
+
+      case TURN_LEFT:
+        digitalWrite(vacuumPin, LOW);
+        crawler.left();
+        delay(860+ ((i<3) ? i*85: 250));
+        crawler.stop();
+        delay(400);
+        if(turnLeft){
+          currentState = FORWARD_SHORT;
+        }
+        else{
+          currentState = FORWARD;
+        }
+        turnLeft = !turnLeft;
+        break;
+    }
+  }
 }
 
 void booksLiftingRoutine()

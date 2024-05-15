@@ -23,10 +23,10 @@ class Wheel{
     }
 
     void Init(byte speed){
-      pinMode(speedPin, OUTPUT);
+      // pinMode(speedPin, OUTPUT);
       pinMode(pinOne, OUTPUT);
       pinMode(pinTwo, OUTPUT);
-      setSpeed(speed);
+      // setSpeed(speed);
     }
 
     void forward(){
@@ -44,18 +44,7 @@ class Wheel{
       digitalWrite(pinTwo,LOW);
     }
 
-    void setSpeed(byte speed){
-
-      if(speed < 0){
-        analogWrite(speedPin, this->speed);
-        return;
-      }
-
-      if(speed > 255){
-        speed = 255;
-      }
-
-      this->speed = speed;
+    void setSpeed(int speed){
       analogWrite(speedPin, speed);
     }
 
@@ -104,6 +93,11 @@ class Crawler{
     void stop(){
       rightWheel.stop();
       leftWheel.stop();
+    }
+
+    void setSpeed(byte speedRight, byte speedLeft){
+      leftWheel.setSpeed(speedLeft);
+      rightWheel.setSpeed(speedRight);
     }
 
 };
